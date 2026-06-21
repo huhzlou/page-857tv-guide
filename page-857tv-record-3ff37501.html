@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>857直播 · 日常查询与对照参考</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f9fd;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 0 16px 32px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* header & hero */
+    .hero {
+      padding-top: 48px;
+      padding-bottom: 32px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0b2a35;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      background: linear-gradient(135deg, #1d7a7a, #20b2aa);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero .sub {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      color: #3f5b66;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .summary-card {
+      background: #ffffffea;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin: 24px 0 32px;
+      box-shadow: 0 4px 12px rgba(0, 60, 60, 0.06);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 28px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .summary-item .icon {
+      width: 28px;
+      height: 28px;
+      background: #d5f0ed;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a7c7c;
+      font-weight: 500;
+    }
+
+    /* grid cards */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    @media (min-width: 600px) {
+      .grid-2col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px 22px 22px;
+      box-shadow: 0 2px 10px rgba(0, 40, 40, 0.04);
+      border: 1px solid #e2f0ee;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(29, 122, 122, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #0b3b3b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3 .badge {
+      background: #d1f0eb;
+      color: #115f5f;
+      font-size: 0.7rem;
+      border-radius: 40px;
+      padding: 2px 10px;
+      font-weight: 400;
+    }
+
+    .card p, .card li {
+      font-size: 0.96rem;
+      color: #2c404a;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      padding: 4px 0 4px 20px;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 4px;
+      color: #20b2aa;
+      font-weight: 700;
+    }
+
+    .highlight-link {
+      color: #1a7c7c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #9acfcb;
+      transition: border-color 0.2s, background 0.15s;
+    }
+
+    .highlight-link:hover {
+      border-bottom-style: solid;
+      background: #e2f7f3;
+    }
+
+    /* 场景块 用卡片变体 */
+    .scene-section {
+      margin-top: 32px;
+    }
+
+    .scene-section h2 {
+      font-size: 1.5rem;
+      font-weight: 440;
+      margin-bottom: 14px;
+      color: #144e4e;
+      border-left: 5px solid #20b2aa;
+      padding-left: 14px;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 500px) {
+      .scene-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .scene-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px 20px;
+      border: 1px solid #d5eae8;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .scene-card h4 {
+      font-weight: 500;
+      color: #1a5454;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .scene-card p {
+      font-size: 0.93rem;
+      color: #2b4550;
+    }
+
+    /* 提示/faq 简洁 */
+    .tip-area {
+      background: #ebf7f5;
+      border-radius: 28px;
+      padding: 22px 26px;
+      margin: 36px 0 24px;
+      border-left: 4px solid #1d9f97;
+    }
+
+    .tip-area strong {
+      color: #115252;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #094c4c;
+    }
+
+    .faq-a {
+      padding-left: 12px;
+      border-left: 2px solid #aad6d1;
+      color: #2b4d4d;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #cde3e0;
+      font-size: 0.85rem;
+      color: #40636b;
+      text-align: center;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      background: #e7f6f3;
+      color: #146060;
+      font-size: 0.8rem;
+      border: 1px solid #b5dbd5;
+      text-decoration: none;
+      transition: 0.15s;
+    }
+
+    .btn-ghost:hover {
+      background: #c5e9e2;
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .summary-card {
+        padding: 18px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区域 -->
+  <div class="hero">
+    <h1><span>857直播</span> · 对照与延伸</h1>
+    <div class="sub">日常中的信息查询、内容对照、以及阅读时的辅助参考</div>
+  </div>
+
+  <!-- 摘要卡片（软性亮点） -->
+  <div class="summary-card">
+    <div class="summary-item"><span class="icon">📋</span> 栏目归档清晰</div>
+    <div class="summary-item"><span class="icon">🔍</span> 常规检索便利</div>
+    <div class="summary-item"><span class="icon">📎</span> 内容索引稳定</div>
+    <div class="summary-item"><span class="icon">⚖️</span> 中立信息陈列</div>
+  </div>
+
+  <!-- 网格卡片：特点 + 使用建议 -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3>📌 特点一览 <span class="badge">对照友好</span></h3>
+      <ul>
+        <li>分区结构明确，方便按兴趣对照</li>
+        <li>更新节奏平稳，内容长期可查</li>
+        <li>不刻意突出推荐，侧重信息呈现</li>
+        <li>移动端阅读体验流畅</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📖 使用建议 <span class="badge">日常参考</span></h3>
+      <ul>
+        <li>作为延伸阅读的起点，而非唯一来源</li>
+        <li>将页面与个人笔记、书签结合使用</li>
+        <li>联系前后内容形成自己的理解</li>
+        <li>定期回顾归档，保持信息连贯</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 场景：日常查询、对照、延伸阅读（从题目角度出发） -->
+  <div class="scene-section">
+    <h2>日常使用场景</h2>
+    <div class="scene-grid">
+      <div class="scene-card">
+        <h4>📂 信息对照</h4>
+        <p>当你需要快速比对不同栏目或时间线内容时，<a href="https://page-857tv.com" class="highlight-link">857直播</a>的条目式布局可以节省反复查找的时间。</p>
+      </div>
+      <div class="scene-card">
+        <h4>📚 延伸阅读</h4>
+        <p>在阅读文章或讨论时，遇到不熟悉的话题，可借助平台分类进行背景补充，形成更完整的认知。</p>
+      </div>
+      <div class="scene-card">
+        <h4>🔖 日常查询</h4>
+        <p>对于经常需要查阅的常规内容，将其作为固定参考点之一，配合其他资料共同使用效果更好。</p>
+      </div>
+      <div class="scene-card">
+        <h4>🧩 内容归档</h4>
+        <p>如果你有整理兴趣类书签的习惯，可以将其收录到对应的收藏夹，作为长期访问的节点。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 + 迷你FAQ -->
+  <div class="tip-area">
+    <strong>🧭 访问说明 · 常见想法</strong>
+    <div class="faq-mini">
+      <div><span class="faq-q">Q：是否需要注册或复杂操作？</span><div class="faq-a">不需要，直接打开即可浏览绝大多数内容，保持浏览器的常规设置即可。</div></div>
+      <div><span class="faq-q">Q：内容是否权威？</span><div class="faq-a">作为信息聚合与展示页面，建议结合多方来源交叉验证，本页面仅作为查询对照的起点之一。</div></div>
+      <div><span class="faq-q">Q：移动端体验如何？</span><div class="faq-a">针对手机和平板做了适配，字号和卡片间距适中，左右滑动较少。</div></div>
+    </div>
+    <div style="margin-top: 16px; font-style: normal; background: #ffffff90; padding: 10px 14px; border-radius: 40px; display: inline-block; font-size: 0.9rem;">
+      🔹 日常参考 · 适度使用 · 保持信息习惯
+    </div>
+  </div>
+
+  <!-- 再次自然嵌入链接 + 附加说明 -->
+  <p style="margin: 12px 0 6px; font-size: 0.96rem; color: #2b4a4a;">
+    若你需要直接浏览内容索引，可前往 <a href="https://page-857tv.com" class="highlight-link">857直播</a> 查看整体结构。建议将其与个人常用的信息源放在同一层级，方便对照。
+  </p>
+
+  <!-- 尾注 -->
+  <div class="footer-note">
+    <span class="btn-ghost">内容索引 · 日常参考</span> 
+    <span style="margin-left: 12px; opacity: 0.7;">页面仅供介绍说明，不构成引导或承诺</span>
+  </div>
+</div>
+</body>
+</html>
