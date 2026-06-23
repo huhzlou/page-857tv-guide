@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游娱乐 · 简明介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: linear-gradient(145deg, #f7e8d0 0%, #fde8c8 40%, #f5d6b3 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2.5rem 1rem;
+      line-height: 1.6;
+      color: #2c221a;
+    }
+
+    .page-card {
+      max-width: 820px;
+      width: 100%;
+      background: #fffcf7;
+      border-radius: 36px;
+      box-shadow: 0 20px 40px -12px rgba(160, 100, 60, 0.25), 0 8px 16px rgba(0,0,0,0.03);
+      padding: 2.5rem 2.2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    /* 首页横幅 */
+    .hero {
+      margin: -0.5rem 0 2rem 0;
+      background: linear-gradient(110deg, #f5dcc0, #f3d0ac);
+      padding: 2rem 1.8rem;
+      border-radius: 28px;
+      color: #3f2b19;
+      text-align: center;
+      box-shadow: inset 0 1px 4px rgba(255, 245, 220, 0.8);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.75;
+      max-width: 480px;
+      margin: 0.2rem auto 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 1.8rem 0 0.8rem 0;
+      padding-bottom: 0.2rem;
+      border-bottom: 3px solid #e9d2ba;
+      display: inline-block;
+      color: #3e2c1b;
+    }
+
+    .intro-block {
+      margin: 1.2rem 0 1.8rem 0;
+    }
+
+    .intro-block p {
+      margin-bottom: 1rem;
+    }
+
+    .highlight-link {
+      color: #b3733a;
+      font-weight: 500;
+      text-decoration: none;
+      background: #faf0e2;
+      padding: 0.12rem 0.6rem;
+      border-radius: 40px;
+      transition: background 0.2s, box-shadow 0.2s;
+      border-bottom: 1px solid #dbb68b;
+    }
+
+    .highlight-link:hover {
+      background: #f1ddc4;
+      box-shadow: 0 2px 6px rgba(170, 100, 40, 0.18);
+      border-bottom-color: #b7804a;
+    }
+
+    .tip-card {
+      background: #faf3e9;
+      border-radius: 24px;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0 1.2rem 0;
+      border-left: 6px solid #dbaa7a;
+      color: #3b2b1c;
+    }
+
+    .tip-card strong {
+      font-weight: 600;
+      color: #734c28;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.6rem 0;
+      background: #fff9f1;
+      padding: 1.2rem 1.6rem;
+      border-radius: 24px;
+    }
+
+    .faq-item {
+      padding: 0.2rem 0;
+    }
+
+    .faq-item q {
+      font-style: normal;
+      color: #5a3f28;
+      font-weight: 500;
+    }
+
+    .faq-item .faq-answer {
+      margin-left: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .footer-note {
+      margin-top: 2.4rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #e2cdb7;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f4a36;
+    }
+
+    .footer-note a {
+      color: #824f24;
+      text-decoration: none;
+      background: #f1e2d1;
+      padding: 0.08rem 0.6rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .footer-note a:hover {
+      background: #e4cfb8;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .page-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 28px;
+      }
+      .hero {
+        padding: 1.5rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+      .tip-card {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+
+    <div class="hero">
+      <h1>九游娱乐 · 简明指南</h1>
+      <p>一份关于平台背景、访问方式与日常使用思路的整理</p>
+    </div>
+
+    <div class="section-title">▎关于九游娱乐</div>
+    <div class="intro-block">
+      <p>
+        <a href="https://portalm-jiuyou.com" class="highlight-link">九游娱乐</a> 
+        是一个以数字休闲内容为主的线上平台，涵盖游戏、互动与轻娱乐体验。平台面向普通用户与轻度爱好者，
+        界面直观，不需要额外下载即可通过浏览器访问大部分内容。自上线以来，持续对页面布局与功能模块做调整，
+        以适应用户的浏览习惯。下文整理了平台的几个主要特点，以及访问时值得留意的细节。
+      </p>
+      <p>
+        相比于传统娱乐站点，九游娱乐更倾向于提供“即点即看”的轻量交互。无论是日常碎片时间，还是专注探索，
+        都能在相对简洁的导航下找到自己感兴趣的方向。平台不强制性要求注册，部分进阶功能会在用户需要时给出
+        清晰的提示。
+      </p>
+    </div>
+
+    <div class="section-title">▎使用前需要注意什么</div>
+    <div class="intro-block">
+      <p>
+        初次访问时，建议使用主流浏览器的最新版本（Chrome、Edge、Safari 或 Firefox），以获得较完整的布局显示。
+        平台使用标准 HTTPS 连接，在公开网络环境下数据经过加密。如果你在访问过程中遇到加载缓慢或页面元素显示异常，
+        可以尝试刷新页面或检查本地网络设置。另外，部分交互内容需要浏览器启用 JavaScript，请保持默认开启状态。
+      </p>
+      <p>
+        内容方面，九游娱乐不对用户做地域限制，但不同地区的网络环境可能影响响应速度。平台内所有推荐内容均以
+        普通娱乐为导向，不涉及任何形式的现金交易或虚拟资产兑换。如果你在浏览时看到需要输入个人敏感信息的弹窗，
+        请先确认页面地址是否为 <code>https://portalm-jiuyou.com</code> 开头，避免误入仿冒页面。
+      </p>
+    </div>
+
+    <div class="tip-card">
+      <strong>📌 访问提醒</strong> —— 始终通过浏览器地址栏手动输入或从可信书签进入。不要轻信非官方渠道给出的链接，
+      尤其是需要下载程序或填写手机号的页面。九游娱乐不会主动要求用户安装任何桌面插件或手机助手。
+    </div>
+
+    <div class="section-title">▎常见疑问摘要</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <q>是否需要注册账号？</q>
+        <span class="faq-answer">浏览大部分内容无需注册。只有评论、收藏等互动功能才需要建立账号。</span>
+      </div>
+      <div class="faq-item">
+        <q>移动设备上访问怎么样？</q>
+        <span class="faq-answer">页面自适应手机与平板，无需额外 App。横屏或竖屏均可正常使用。</span>
+      </div>
+      <div class="faq-item">
+        <q>内容更新频率如何？</q>
+        <span class="faq-answer">平台保持周更节奏，部分热门栏目会不定时补充新内容。</span>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p>
+        若想直接开始浏览，可访问 
+        <a href="https://portalm-jiuyou.com">九游娱乐</a> 
+        · 建议将网址加入浏览器书签，方便日后快速打开。
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
